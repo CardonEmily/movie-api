@@ -8,59 +8,34 @@ app.use(morgan("common"));
 
 const topMovies = [
   {
-    title: "The Shawshank Redemtion",
-    director: "Frank Darabont",
-    release: "1994",
+    title: "127 Hours",
+    director: "Danny Boyle",
+    release: "2010",
+    genre: "Biography, Drama",
+    rating: "R",
+    length: "1h 34m",
+    description:
+      "A mountain climber becomes trapped under a boulder while canyoneering alone near Moab, Utah and resorts to desperate measures in order to survive.",
   },
   {
-    title: "The Godfather",
-    director: "Francis Ford Coppola",
-    release: "1972",
+    title: "100 Rifles",
+    director: "Tom Gries",
+    release: "1969",
+    genre: "Adventure, Drama, War",
+    rating: "R",
+    length: "1h 50m",
+    description:
+      "In 1912 Sonora, Mexico, native revolutionary Yaqui Joe (Burt Reynolds) robs a bank to buy arms for his oppressed people, but finds himself sought by an American lawman and the Mexican Army.",
   },
   {
-    title: "The Dark Knight",
-    director: "Christopher Nolan",
-    release: "2008",
-  },
-  {
-    title: "The Godfather Part II",
-    director: "Francis Ford Coppola",
-    release: "1974",
-  },
-  {
-    title: "Angry Man",
-    director: "Sydney Lumet",
-    release: "1957",
-  },
-  {
-    title: "Schindler's List",
-    director: "Steven Spielberg",
-    release: "1993",
-  },
-  {
-    title: "The Lord of the Rings: Return of the King",
-    director: "Peter Jackson",
-    release: "2003",
-  },
-  {
-    title: "Pulp Fiction",
-    director: "Quentin Taratino",
-    release: "1994",
-  },
-  {
-    title: "The Lord of the Rings: Fellowship of the Rings",
-    director: "Peter Jackson",
-    release: "2001",
-  },
-  {
-    title: "The Good, the Bad and the Ugly",
-    director: "Sergio Leone",
-    release: "1966",
-  },
-  {
-    title: "Forrest Gump",
-    director: "Robert Zemeckis",
-    release: "1994",
+    title: "The Hunger Games",
+    director: "Gary Ross",
+    release: "2012",
+    genre: "Adventure, Action, Sci-Fi",
+    rating: "PG-13",
+    length: "2h 22m",
+    description:
+      "Katniss Everdeen voluntarily takes her young sister's place in teh Hunger Games: a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.",
   },
 ];
 
