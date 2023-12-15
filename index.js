@@ -6,7 +6,7 @@ const app = express();
 
 app.use(morgan("common"));
 
-const topMovies = [
+const movies = [
   {
     title: "127 Hours",
     director: "Danny Boyle",
@@ -47,14 +47,44 @@ app.get("/", (req, res) => {
 //express.static to serve 'documentation.html'
 app.use(express.static("public"));
 
+//READ
 app.get("/movies", (req, res) => {
-  res.json(topMovies);
+  res.json(movies);
 });
 
+//READ
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Inconceivable! An error has occurred.");
 });
+
+app.get("/movies/:title", (req, res) => {
+  const { title } = req.params;
+  const movie = movies.find((movie) => movie.Title === title);
+
+  if (movie) {
+    res.status(200).json(movie);
+  } else {
+    res.status(400).send("Title not found.");
+  }
+});
+
+//READ
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send("Inconceivable! An error has occurred.");
+// });
+
+// app.get("/movies/:title", (req, res) => {
+//   const { title } = req.params;
+//   const movie = movies.find( movie => movie.Title === title);
+
+//   if (movie) {
+//     res.status(200).json(movie);
+//   } else {
+//     res.status(400).send("Title not found.");
+//   }
+// });
 
 // listen for requests
 app.listen(8080, () => {
