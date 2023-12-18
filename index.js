@@ -44,13 +44,21 @@ const movies = [
   },
   {
     Title: "The Hunger Games",
-    Director: "Gary Ross",
     Release: "2012",
-    Genre: "Adventure, Action, Sci-Fi",
+    Genre: {
+      Name: "Adventure",
+      Name: "Action",
+      Name: "Sci-Fi",
+      Description:
+        "Katniss Everdeen voluntarily takes her young sister's place in teh Hunger Games: a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.",
+    },
     Rating: "PG-13",
     Length: "2h 22m",
-    Description:
-      "Katniss Everdeen voluntarily takes her young sister's place in teh Hunger Games: a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.",
+    Director: {
+      Name: "Gary Ross",
+      Age: "45",
+      Bio: "xxx...",
+    },
   },
 ];
 
@@ -72,7 +80,7 @@ app.use((err, req, res, next) => {
   res.status(500).send("Inconceivable! An error has occurred.");
 });
 
-//READ
+//READ TITLE
 app.get("/movies/:Title", (req, res) => {
   const { Title } = req.params;
   const movie = movies.find((movie) => movie.Title === Title);
@@ -84,7 +92,7 @@ app.get("/movies/:Title", (req, res) => {
   }
 });
 
-//READ
+//READ GENRE
 app.get("/movies/Genre/:GenreName", (req, res) => {
   const { GenreName } = req.params;
   const Genre = movies.find((movie) => movie.Genre.Name === GenreName).Genre;
@@ -93,6 +101,20 @@ app.get("/movies/Genre/:GenreName", (req, res) => {
     res.status(200).json(Genre);
   } else {
     res.status(400).send("Genre not found.");
+  }
+});
+
+//READ DIRECTOR
+app.get("/movies/director/:directorName", (req, res) => {
+  const { directorName } = req.params;
+  const director = movies.find(
+    (movie) => movie.Director.Name === directorName
+  ).Director;
+
+  if (director) {
+    res.status(200).json(director);
+  } else {
+    res.status(400).send("Director information not found.");
   }
 });
 
